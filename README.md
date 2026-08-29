@@ -68,14 +68,14 @@ right. Past ~20 the lanes get too thin to read; split the field into two races
 
 | `car` | Label | Speed (distance per point) |
 | --- | --- | --- |
-| `f1` | Formula | 1.30 |
-| `supercar` | Supercar | 1.20 |
-| `sports` | Sports | 1.12 |
-| `muscle` | Muscle | 1.00 |
-| `hatchback` | Hot hatch | 0.92 |
-| `pickup` | Pickup | 0.84 |
-| `van` | Van | 0.76 |
-| `tractor` | Tractor | 0.62 |
+| `f1` | Formula | 2 |
+| `supercar` | Supercar | 2 |
+| `sports` | Sports | 2 |
+| `muscle` | Muscle | 1 |
+| `hatchback` | Hot hatch | 1 |
+| `pickup` | Pickup | 1 |
+| `van` | Van | 1 |
+| `tractor` | Tractor | 1 |
 
 **Distance = points × car speed.** The car with the most distance takes the
 chequered flag, so the handicap is real: give the fast cars out as a prize, or

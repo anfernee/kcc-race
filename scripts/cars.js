@@ -1,14 +1,14 @@
 // The garage. `speed` is how far the car travels per point scored —
 // a Formula car covers ~2x the ground of a tractor for the same work.
 export const CARS = {
-  f1:        { label: "Formula",    speed: 1.30 },
-  supercar:  { label: "Supercar",   speed: 1.20 },
-  sports:    { label: "Sports",     speed: 1.12 },
+  f1:        { label: "Formula",    speed: 2.00 },
+  supercar:  { label: "Supercar",   speed: 2.00 },
+  sports:    { label: "Sports",     speed: 2.00 },
   muscle:    { label: "Muscle",     speed: 1.00 },
-  hatchback: { label: "Hot hatch",  speed: 0.92 },
-  pickup:    { label: "Pickup",     speed: 0.84 },
-  van:       { label: "Van",        speed: 0.76 },
-  tractor:   { label: "Tractor",    speed: 0.62 },
+  hatchback: { label: "Hot hatch",  speed: 1.00 },
+  pickup:    { label: "Pickup",     speed: 1.00 },
+  van:       { label: "Van",        speed: 1.00 },
+  tractor:   { label: "Tractor",    speed: 1.00 },
 };
 
 export const DEFAULT_CAR = "muscle";
