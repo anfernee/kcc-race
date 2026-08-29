@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KCC Grand Prix</title>
+<style>
+  :root{
+    --bg:#0a0d14; --panel:#121826; --panel2:#0e1320; --line:#1e2739;
+    --text:#e9eef7; --muted:#8c9ab2; --accent:#ffd23f; --good:#54e08a;
+    --asphalt1:#161c29; --asphalt2:#10151f;
+    /* Set by applyDensity() — a 20-car grid gets thin lanes and small cars. */
+    --lane-h:78px; --car-h:44px; --car-w:120px;
+    --info-w:214px; --rank-sz:22px; --name-fs:14px; --meta-fs:11px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #1b2740 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, #2a1730 0%, transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1400px;margin:0 auto;padding:22px 22px 48px}
+
+  /* ---------------------------------------------------------------- header */
+  header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;margin-bottom:20px}
+  h1{
+    margin:0;font-size:30px;letter-spacing:-.02em;font-weight:800;
+    background:linear-gradient(92deg,#fff 10%,var(--accent) 60%,#ff7ac6 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .spacer{flex:1}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;
+    background:var(--panel);border:1px solid var(--line);color:var(--muted);font-size:12px;white-space:nowrap
+  }
+  .pill.warn{border-color:#5a4413;background:#241d0c;color:var(--accent)}
+  .pill b{color:var(--text);font-weight:600}
+
+  /* ----------------------------------------------------------------- grid */
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+  @media (max-width:1080px){.grid{grid-template-columns:minmax(0,1fr)}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px}
+  .card h2{
+    margin:0;padding:13px 16px;font-size:12px;font-weight:700;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)
+  }
+
+  /* ---------------------------------------------------------------- track */
+  .track{padding:8px 0 4px;overflow:hidden}
+  .lane{
+    position:relative;height:var(--lane-h);display:flex;align-items:center;
+    border-bottom:1px dashed rgba(255,255,255,.06)
+  }
+  .lane:last-child{border-bottom:0}
+  .lane:nth-child(even){background:rgba(255,255,255,.014)}
+  .lane .info{
+    width:var(--info-w);flex:0 0 var(--info-w);padding:0 10px 0 14px;z-index:3;min-width:0;
+  }
+  .nm{display:flex;align-items:center;gap:7px;font-weight:700;font-size:var(--name-fs);line-height:1.2;min-width:0}
+  .nm .who{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rank{
+    flex:0 0 var(--rank-sz);height:var(--rank-sz);border-radius:6px;display:grid;place-items:center;
+    font-size:calc(var(--rank-sz) * .5);font-weight:800;font-variant-numeric:tabular-nums;
+    background:var(--panel2);border:1px solid var(--line);color:var(--muted)
+  }
+  .lane.p1 .rank{background:var(--accent);color:#241d00;border-color:var(--accent)}
+  .lane.p2 .rank{background:#c9d4e4;color:#1b2130;border-color:#c9d4e4}
+  .lane.p3 .rank{background:#d08a4a;color:#241300;border-color:#d08a4a}
+  .meta{font-size:var(--meta-fs);color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* Tight grids put the name and the score on one line and drop the car label. */
+  body[data-tight="1"] .lane .info{display:flex;align-items:center;gap:8px}
+  body[data-tight="1"] .nm{flex:1;min-width:0}
+  body[data-tight="1"] .meta{margin-top:0;flex:0 0 auto;font-variant-numeric:tabular-nums}
+  body[data-tight="1"] .ct,body[data-tight="1"] .dot{display:none}
+  .meta .dot{opacity:.4;margin:0 4px}
+
+  @media (max-width:760px){
+    .lane .info{width:150px;flex-basis:150px;padding-left:12px}
+    .meta{margin-left:0;font-size:10.5px}
+    :root{--lane-h:70px}
+  }
+  .road{
+    position:relative;flex:1;height:100%;
+    background:linear-gradient(180deg,var(--asphalt1),var(--asphalt2));
+    border-left:2px solid rgba(255,255,255,.25);
+    overflow:hidden;
+  }
+  .road::before{ /* centre line */
+    content:"";position:absolute;left:0;right:0;top:50%;height:2px;transform:translateY(-50%);
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 22px,transparent 22px 46px);
+  }
+  .road::after{ /* finish line */
+    content:"";position:absolute;top:0;bottom:0;right:0;width:16px;
+    background:
+      repeating-conic-gradient(#e9eef7 0% 25%, #10151f 0% 50%) 0 0/8px 8px;
+    opacity:.85;
+  }
+  .car{
+    position:absolute;top:50%;left:0;height:var(--car-h);width:var(--car-w);
+    transform:translate(0,-50%);will-change:transform;
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,.55));
+  }
+  .car svg{display:block;height:100%;width:100%;overflow:visible}
+  .wheel{transform-box:fill-box;transform-origin:center;}
+  .rolling .wheel{animation:spin .35s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .boosting .body{animation:bump .3s ease}
+  @keyframes bump{40%{transform:translateY(-2px) rotate(-1.2deg)}}
+  .trail{
+    position:absolute;top:50%;height:6px;border-radius:3px;transform:translateY(-50%);
+    left:0;opacity:.35;pointer-events:none;
+  }
+  .puff{
+    position:absolute;top:50%;width:9px;height:9px;border-radius:50%;
+    background:rgba(255,255,255,.5);pointer-events:none;animation:puff .7s ease-out forwards
+  }
+  @keyframes puff{to{transform:translate(-46px,-14px) scale(2.4);opacity:0}}
+  .pop{
+    position:absolute;top:8px;font-size:12px;font-weight:800;pointer-events:none;
+    animation:pop 1.1s ease-out forwards;text-shadow:0 2px 6px rgba(0,0,0,.7)
+  }
+  @keyframes pop{0%{opacity:0;transform:translateY(6px)}20%{opacity:1}to{opacity:0;transform:translateY(-22px)}}
+
+  /* -------------------------------------------------------------- controls */
+  .controls{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line);flex-wrap:wrap}
+  button{
+    font:inherit;font-weight:600;color:var(--text);background:var(--panel2);
+    border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;transition:.15s
+  }
+  button:hover{border-color:#33415c;background:#182035}
+  button.primary{background:var(--accent);color:#241d00;border-color:var(--accent)}
+  button.primary:hover{filter:brightness(1.08)}
+  .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{border:0;border-radius:0;padding:8px 11px;font-size:12px;background:transparent}
+  .seg button[aria-pressed="true"]{background:#1c2740;color:var(--accent)}
+  input[type=range]{flex:1;min-width:180px;accent-color:var(--accent)}
+  .day{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;min-width:96px;text-align:right}
+
+  /* --------------------------------------------------------------- sidebar */
+  .board{padding:6px 0;max-height:min(64vh,760px);overflow:auto}
+  .row.tight{grid-template-columns:10px 1fr auto;padding:4px 12px;gap:9px}
+  .row.tight .who{display:flex;align-items:baseline;gap:6px}
+  .row.tight .who b{font-size:12px;flex:0 0 auto}
+  .row.tight .who span{font-size:10.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row.tight .sc b{font-size:13px}
+  body[data-tight="1"] .row .who b{font-size:12px}
+  body[data-tight="1"] .row .sc b{font-size:13px}
+  body[data-tight="1"] .bar{display:none}
+  .row{
+    display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;
+    padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.04)
+  }
+  .row:last-child{border-bottom:0}
+  .row .chip{width:10px;height:10px;border-radius:3px;justify-self:center}
+  .row .who{min-width:0}
+  .row .who b{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .who span{font-size:11px;color:var(--muted)}
+  .row .sc{text-align:right;font-variant-numeric:tabular-nums}
+  .row .sc b{font-size:15px}
+  .row .sc span{display:block;font-size:11px;color:var(--muted)}
+  .bar{grid-column:1/-1;height:4px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:2px;transition:width .25s linear}
+
+  .feed{max-height:min(34vh,340px);overflow:auto;padding:6px 0}
+  .board::-webkit-scrollbar,.feed::-webkit-scrollbar{width:8px}
+  .board::-webkit-scrollbar-thumb,.feed::-webkit-scrollbar-thumb{background:#2a3549;border-radius:4px}
+  .board,.feed{scrollbar-width:thin;scrollbar-color:#2a3549 transparent}
+  .ev{display:flex;gap:9px;padding:8px 14px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.04)}
+  .ev:last-child{border-bottom:0}
+  .ev .ic{flex:0 0 20px;height:20px;border-radius:6px;display:grid;place-items:center;font-size:11px;background:var(--panel2);border:1px solid var(--line)}
+  .ev .tx{min-width:0}
+  .ev .tx a{color:var(--text);text-decoration:none;font-weight:600}
+  .ev .tx a:hover{text-decoration:underline}
+  .ev .tx div{color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .empty{padding:22px 16px;color:var(--muted);font-size:12px;text-align:center}
+
+  /* ---------------------------------------------------------------- winner */
+  .winner{
+    display:none;position:fixed;right:20px;bottom:18px;z-index:60;
+    padding:13px 18px;border-radius:14px;cursor:pointer;max-width:min(420px,92vw);
+    background:linear-gradient(100deg,rgba(38,28,10,.96),rgba(30,16,32,.96));
+    border:1px solid rgba(255,210,63,.45);align-items:center;gap:14px;
+    box-shadow:0 18px 50px rgba(0,0,0,.6)
+  }
+  .winner.show{display:flex}
+  .winner::after{content:"✕";margin-left:6px;color:var(--muted);font-size:12px}
+  .winner .trophy{font-size:30px}
+  .winner b{font-size:17px}
+  .winner p{margin:2px 0 0;color:var(--muted);font-size:12px}
+  .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+  .conf{position:absolute;width:8px;height:14px;opacity:.95;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.1}}
+
+  footer{margin-top:18px;color:var(--muted);font-size:11.5px;text-align:center}
+  code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="title">KCC Grand Prix</h1>
+      <div class="sub" id="subtitle">Loading the grid…</div>
+    </div>
+    <div class="spacer"></div>
+    <span class="pill" id="pill-period">—</span>
+    <span class="pill" id="pill-scope">—</span>
+    <span class="pill" id="pill-generated">—</span>
+    <span class="pill warn" id="pill-demo" hidden>demo data</span>
+  </header>
+
+  <div class="grid">
+    <div>
+      <section class="card">
+        <h2>The race</h2>
+        <div class="track" id="track"></div>
+        <div class="controls">
+          <button class="primary" id="play">▶ Start race</button>
+          <button id="restart">↻ Restart</button>
+          <div class="seg" id="speeds">
+            <button data-speed="1" aria-pressed="true">1×</button>
+            <button data-speed="2" aria-pressed="false">2×</button>
+            <button data-speed="4" aria-pressed="false">4×</button>
+          </div>
+          <input type="range" id="scrub" min="0" max="100" value="100" step="0.01">
+          <div class="day" id="daylabel">—</div>
+        </div>
+      </section>
+
+      <div class="winner" id="winner">
+        <div class="trophy">🏆</div>
+        <div>
+          <b id="winner-name"></b>
+          <p id="winner-line"></p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <section class="card" style="margin-bottom:18px">
+        <h2>Standings <span style="float:right;text-transform:none;letter-spacing:0;opacity:.7">distance</span></h2>
+        <div class="board" id="board"></div>
+      </section>
+      <section class="card">
+        <h2>Race commentary</h2>
+        <div class="feed" id="feed"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+<div class="confetti" id="confetti"></div>
+
+<script src="data.js" onerror="window.__noDataJs=true"></script>
+<script>
+(() => {
+  "use strict";
+
+  /* ------------------------------------------------------------ the garage */
+  // Each car is drawn in a 120×44 box. Wheels sit on the road at y≈34.
+  const wheel = (cx, cy, r) => `
+    <g class="wheel">
+      <circle cx="${cx}" cy="${cy}" r="${r}" fill="#0b0e14"/>
+      <circle cx="${cx}" cy="${cy}" r="${r * 0.55}" fill="#2b3549"/>
+      <rect x="${cx - 1}" y="${cy - r * 0.62}" width="2" height="${r * 1.24}" rx="1" fill="#8fa1bf"/>
+      <rect x="${cx - r * 0.62}" y="${cy - 1}" width="${r * 1.24}" height="2" rx="1" fill="#8fa1bf"/>
+    </g>`;
+
+  const glass = "rgba(180,225,255,.55)";
+
+  // Every car faces RIGHT, the direction of travel. The convention, so new
+  // cars stay consistent: nose, windscreen and headlight at high x; boot,
+  // tail light and rear wheel at low x; front wheel forward of the rear one.
+  const lamp = (x, y, w = 8, h = 3) =>
+    `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="1.5" fill="#ffeaa0"/>`;
+  const tail = (x, y) => `<rect x="${x}" y="${y}" width="5" height="3" rx="1.5" fill="#ff5f6d"/>`;
+
+  const SHAPES = {
+    f1: (c) => `
+      <rect x="96" y="30.5" width="24" height="4" rx="1.5" fill="${c}"/>
+      <rect x="116" y="27.5" width="3.5" height="7" rx="1.5" fill="${c}"/>
+      <rect x="2" y="8" width="22" height="4" rx="2" fill="${c}"/>
+      <rect x="12" y="11" width="4" height="16" fill="#2b3549"/>
+      <path class="body" d="M8 34 L8 27 L30 24 L46 21 L62 19 L80 22 L100 29 L104 31 L104 34 Z" fill="${c}"/>
+      <path d="M34 24 q9 -9 17 -1 Z" fill="#0f1521"/>
+      <circle cx="56" cy="18" r="4.5" fill="${glass}"/>
+      ${lamp(96, 29, 7, 2.5)}
+      ${wheel(28, 30, 10)}${wheel(94, 30, 10)}`,
+
+    supercar: (c) => `
+      <rect x="8" y="21" width="15" height="2.5" rx="1.25" fill="${c}"/>
+      <path class="body" d="M6 34 L7 25 L22 22 L44 15 L72 15 L92 21 L113 27 L114 34 Z" fill="${c}"/>
+      <path d="M28 21 L48 16.5 L68 16.5 L86 21 Z" fill="${glass}"/>
+      ${lamp(103, 26, 9, 2.5)}${tail(6, 25)}
+      ${wheel(30, 32, 8.5)}${wheel(92, 32, 8.5)}`,
+
+    sports: (c) => `
+      <path class="body" d="M8 34 L8 26 L20 23 L40 13 L70 13 L88 21 L112 25 L114 30 L114 34 Z" fill="${c}"/>
+      <path d="M26 21 L44 15 L68 15 L84 21 Z" fill="${glass}"/>
+      ${lamp(104, 25)}${tail(6, 26)}
+      ${wheel(30, 32, 9)}${wheel(92, 32, 9)}`,
+
+    muscle: (c) => `
+      <path class="body" d="M6 34 L6 22 L20 13 L58 12 L80 20 L112 22 L114 27 L114 34 Z" fill="${c}"/>
+      <path d="M22 21 L34 15 L56 15 L72 21 Z" fill="${glass}"/>
+      <rect x="86" y="16.5" width="22" height="3.5" rx="1.75" fill="#1b2333"/>
+      ${lamp(103, 23, 9, 3.5)}${tail(5, 24)}
+      ${wheel(28, 32, 9.5)}${wheel(92, 32, 9.5)}`,
+
+    hatchback: (c) => `
+      <path class="body" d="M14 34 L14 20 L26 9 L62 8 L80 17 L104 20 L106 24 L106 34 Z" fill="${c}"/>
+      <path d="M22 18 L31 11 L62 11 L76 18 Z" fill="${glass}"/>
+      ${lamp(97, 21, 7, 3)}${tail(13, 19.5)}
+      ${wheel(32, 32, 9)}${wheel(88, 32, 9)}`,
+
+    pickup: (c) => `
+      <path class="body" d="M8 34 L8 18 L60 18 L64 9 L92 8 L100 18 L114 21 L114 34 Z" fill="${c}"/>
+      <path d="M68 16 L72 11 L89 11 L94 16 Z" fill="${glass}"/>
+      <rect x="8" y="16" width="52" height="2.5" rx="1.25" fill="rgba(0,0,0,.3)"/>
+      ${lamp(105, 22, 7, 3)}${tail(7, 20)}
+      ${wheel(28, 32, 9.5)}${wheel(86, 32, 9.5)}`,
+
+    van: (c) => `
+      <path class="body" d="M8 34 L8 8 Q9 4 18 4 L92 4 Q102 5 108 13 L114 20 L114 34 Z" fill="${c}"/>
+      <rect x="16" y="10" width="30" height="12" rx="2" fill="${glass}"/>
+      <rect x="54" y="10" width="26" height="12" rx="2" fill="${glass}"/>
+      <path d="M88 10 L96 10 L107 19 L88 19 Z" fill="${glass}"/>
+      ${lamp(105, 22, 7, 3)}${tail(7, 22)}
+      ${wheel(30, 32, 9)}${wheel(92, 32, 9)}`,
+
+    tractor: (c) => `
+      <path class="body" d="M28 33 L28 23 L48 23 L50 8 L76 8 L80 20 L104 20 L104 30 L96 33 Z" fill="${c}"/>
+      <rect x="54" y="10" width="20" height="10" rx="1.5" fill="${glass}"/>
+      <rect x="82" y="3" width="4" height="18" rx="1" fill="#2b3549"/>
+      ${lamp(95, 21.5, 8, 3)}
+      ${wheel(38, 27, 14)}${wheel(96, 33, 8)}
+      <path d="M23 24 A15 15 0 0 1 53 24" stroke="${c}" stroke-width="4"
+            fill="none" stroke-linecap="round"/>`,
+  };
+
+  const carSVG = (type, color) =>
+    `<svg viewBox="0 0 120 44" aria-hidden="true">${(SHAPES[type] || SHAPES.muscle)(color)}</svg>`;
+
+  const ICON = { pr: "⬡", issue: "✔", review: "👁" };
+  const WORD = { pr: "merged", issue: "closed", review: "reviewed" };
+
+  /* ------------------------------------------------------------- fallback */
+  function buildDemo() {
+    const days = [];
+    const start = new Date(Date.now() - 29 * 864e5);
+    for (let i = 0; i < 30; i++) days.push(new Date(+start + i * 864e5).toISOString().slice(0, 10));
+    const grid = [
+      ["Ada", "f1", "#ff2e63"], ["Bo", "supercar", "#00e5ff"], ["Cyd", "sports", "#ffd23f"],
+      ["Dev", "muscle", "#7cff6b"], ["Eze", "hatchback", "#b06bff"], ["Fin", "pickup", "#ff9f1c"],
+    ];
+    let s = 12345;
+    const rnd = () => ((s = (s * 1664525 + 1013904223) % 4294967296) / 4294967296);
+    const pts = { pr: 3, issue: 2, review: 1 };
+    const racers = grid.map(([name, car, color], i) => {
+      const busy = 0.4 + rnd();
+      const daily = [], events = [];
+      let T = { pr: 0, issue: 0, review: 0, points: 0 };
+      days.forEach((day) => {
+        const d = { pr: 0, issue: 0, review: 0, points: 0 };
+        const n = Math.floor(rnd() * 4 * busy);
+        for (let k = 0; k < n; k++) {
+          const r = rnd(), type = r < 0.5 ? "pr" : r < 0.8 ? "review" : "issue";
+          d[type]++; d.points += pts[type];
+          events.push({ type, day, title: "Sample change #" + (100 + Math.floor(rnd() * 800)), url: "#", repo: "kcc/demo", number: 0 });
+        }
+        daily.push(d);
+        T = { pr: T.pr + d.pr, issue: T.issue + d.issue, review: T.review + d.review, points: T.points + d.points };
+      });
+      const speed = [1.3, 1.2, 1.12, 1, 0.92, 0.84][i];
+      return { login: name.toLowerCase(), name, car, carLabel: car, color, speed,
+        totals: { ...T, distance: +(T.points * speed).toFixed(2) }, daily, events };
+    });
+    return { generatedAt: new Date().toISOString(), demo: true, title: "KCC Grand Prix",
+      subtitle: "Sample grid — run the fetch script for real numbers",
+      period: { since: days[0], until: days[days.length - 1] }, scope: {},
+      scoring: { mergedPR: 3, issueClosed: 2, reviewSubmitted: 1 }, days, racers };
+  }
+
+  /* ----------------------------------------------------------------- state */
+  const $ = (id) => document.getElementById(id);
+  let DATA, N = 0, CUM = [], MAX = 1, t = 0, playing = false, mult = 1, lastDay = -1, raf = 0, prevX = [];
+  let TIGHT = false, CARW = 120;
+  const lanes = [];
+
+  function cumulative(r) {
+    const c = [0];
+    r.daily.forEach((d, i) => c.push(c[i] + d.points));
+    return c;
+  }
+  const at = (i, x) => {
+    const d = Math.min(Math.floor(x), N - 1), f = Math.min(1, x - d);
+    return CUM[i][d] + f * (CUM[i][d + 1] - CUM[i][d]);
+  };
+
+  /* ---------------------------------------------------------------- density */
+  // The whole grid has to be visible at once, whether that's 4 racers or 20.
+  // Lane height falls out of the viewport; car size, label width and type
+  // scale with it, and below ~50px a lane switches to the one-line layout.
+  function applyDensity() {
+    const n = Math.max(1, DATA.racers.length);
+    const chrome = 300;                                   // header + card + controls
+    const avail = Math.max(260, window.innerHeight - chrome);
+    const laneH = Math.max(26, Math.min(78, Math.floor(avail / n)));
+    const carH = Math.max(16, Math.round(laneH * 0.64));
+    const carW = Math.round(carH * (120 / 44));
+    TIGHT = laneH < 50;
+    CARW = carW;
+
+    const r = document.documentElement.style;
+    r.setProperty("--lane-h", laneH + "px");
+    r.setProperty("--car-h", carH + "px");
+    r.setProperty("--car-w", carW + "px");
+    r.setProperty("--rank-sz", (TIGHT ? 18 : 22) + "px");
+    r.setProperty("--name-fs", (TIGHT ? Math.max(10.5, Math.min(13, laneH * 0.30)) : 14) + "px");
+    r.setProperty("--meta-fs", (TIGHT ? Math.max(9.5, Math.min(11, laneH * 0.26)) : 11) + "px");
+    r.setProperty("--info-w", (TIGHT ? 172 : 214) + "px");
+    document.body.dataset.tight = TIGHT ? "1" : "0";
+  }
+
+  /* ------------------------------------------------------------------ build */
+  function build() {
+    N = DATA.days.length;
+    CUM = DATA.racers.map(cumulative);
+    MAX = Math.max(1, ...DATA.racers.map((r, i) => CUM[i][N] * r.speed));
+
+    $("title").textContent = DATA.title;
+    document.title = DATA.title;
+    $("subtitle").textContent = DATA.subtitle ||
+      `${DATA.scoring.mergedPR} pts per merged PR · ${DATA.scoring.issueClosed} per issue closed · ${DATA.scoring.reviewSubmitted} per review`;
+    $("pill-period").innerHTML = `<b>${DATA.period.since}</b> → <b>${DATA.period.until}</b>`;
+    const scope = [...(DATA.scope.orgs || []), ...(DATA.scope.repos || [])];
+    $("pill-scope").innerHTML = scope.length ? `scope <b>${scope.join(", ")}</b>` : "scope <b>all of GitHub</b>";
+    $("pill-generated").textContent = "updated " + new Date(DATA.generatedAt).toLocaleString();
+    $("pill-demo").hidden = !DATA.demo;
+    $("foot").innerHTML = `Distance = points × car speed. Refresh the numbers with <code>npm run fetch</code>.`;
+
+    applyDensity();
+
+    const track = $("track");
+    track.innerHTML = "";
+    DATA.racers.forEach((r, i) => {
+      const lane = document.createElement("div");
+      lane.className = "lane";
+      lane.innerHTML = `
+        <div class="info">
+          <div class="nm"><span class="rank">${i + 1}</span><span class="who" style="color:${r.color}">${esc(r.name)}</span></div>
+          <div class="meta"><span class="ct">${esc(r.carLabel || r.car)} ×${r.speed}</span> <span class="dot">·</span> <span class="sc">0 pts</span></div>
+        </div>
+        <div class="road">
+          <div class="trail" style="background:linear-gradient(90deg,transparent,${r.color});width:0"></div>
+          <div class="car">${carSVG(r.car, r.color)}</div>
+        </div>`;
+      track.appendChild(lane);
+      lanes.push({
+        el: lane, car: lane.querySelector(".car"), road: lane.querySelector(".road"),
+        trail: lane.querySelector(".trail"), rank: lane.querySelector(".rank"), score: lane.querySelector(".sc"),
+      });
+    });
+    prevX = DATA.racers.map(() => 0);
+    render(true);
+  }
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /* ----------------------------------------------------------------- render */
+  function render(force) {
+    const day = Math.min(N - 1, Math.floor(t));
+    const standings = DATA.racers
+      .map((r, i) => ({ r, i, pts: at(i, t), dist: at(i, t) * r.speed }))
+      .sort((a, b) => b.dist - a.dist);
+    const rankOf = new Map(standings.map((s, k) => [s.i, k]));
+
+    DATA.racers.forEach((r, i) => {
+      const L = lanes[i];
+      const usable = Math.max(60, L.road.clientWidth - (CARW + 10));
+      const x = (at(i, t) * r.speed / MAX) * usable;
+      L.car.style.transform = `translate(${x}px,-50%)`;
+      L.trail.style.width = Math.max(0, x) + "px";
+      const moving = x - prevX[i] > 0.12;
+      L.car.classList.toggle("rolling", moving);
+      prevX[i] = x;
+
+      const k = rankOf.get(i);
+      L.rank.textContent = k + 1;
+      L.el.className = "lane" + (k < 3 ? " p" + (k + 1) : "");
+      L.score.textContent = TIGHT
+        ? String(Math.round(at(i, t) * r.speed))
+        : `${Math.round(at(i, t))} → ${Math.round(at(i, t) * r.speed)}`;
+    });
+
+    $("scrub").value = String((t / N) * 100);
+    $("daylabel").textContent = DATA.days[day] + `  (${day + 1}/${N})`;
+
+    if (force || day !== lastDay) {
+      if (day > lastDay && lastDay >= 0) for (let d = lastDay + 1; d <= day; d++) celebrate(d);
+      lastDay = day;
+      renderBoard(standings);
+      renderFeed(day);
+    }
+    if (t >= N) finish(standings); else hideWinner();
+  }
+
+  function renderBoard(standings) {
+    $("board").innerHTML = standings.map((s, k) => {
+      const tot = totalsThrough(s.i, Math.min(N - 1, Math.floor(t)));
+      const car = `${esc(s.r.carLabel || s.r.car)} ×${s.r.speed}`;
+      const tally = `${tot.pr} pr · ${tot.issue} iss · ${tot.review} rev`;
+      // A big field gets one line per racer so the whole grid fits without scrolling.
+      if (TIGHT) {
+        return `<div class="row tight" title="${tally}">
+          <span class="chip" style="background:${s.r.color}"></span>
+          <span class="who"><b>${k + 1}. ${esc(s.r.name)}</b><span>${car}</span></span>
+          <span class="sc"><b>${s.dist.toFixed(0)}</b></span>
+        </div>`;
+      }
+      const w = Math.max(2, (s.dist / MAX) * 100);
+      return `<div class="row">
+        <span class="chip" style="background:${s.r.color}"></span>
+        <span class="who"><b>${k + 1}. ${esc(s.r.name)}</b><span>${car}</span></span>
+        <span class="sc"><b>${s.dist.toFixed(0)}</b><span>${tally}</span></span>
+        <span class="bar"><i style="width:${w}%;background:${s.r.color}"></i></span>
+      </div>`;
+    }).join("");
+  }
+
+  function totalsThrough(i, day) {
+    const T = { pr: 0, issue: 0, review: 0 };
+    for (let d = 0; d <= day; d++) {
+      const x = DATA.racers[i].daily[d];
+      T.pr += x.pr; T.issue += x.issue; T.review += x.review;
+    }
+    return T;
+  }
+
+  function renderFeed(day) {
+    const upto = DATA.days[day];
+    const all = [];
+    DATA.racers.forEach((r) => r.events.forEach((e) => { if (e.day <= upto) all.push({ ...e, who: r.name, color: r.color }); }));
+    all.sort((a, b) => (a.day < b.day ? 1 : a.day > b.day ? -1 : 0));
+    const feed = $("feed");
+    feed.innerHTML = all.length
+      ? all.slice(0, 40).map((e) => `<div class="ev">
+          <span class="ic" style="color:${e.color}">${ICON[e.type]}</span>
+          <span class="tx">
+            <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
+            <div>${esc(e.who)} ${WORD[e.type]} · ${esc(e.repo || "")} · ${e.day}</div>
+          </span></div>`).join("")
+      : `<div class="empty">Nothing on the board yet.</div>`;
+  }
+
+  function celebrate(day) {
+    DATA.racers.forEach((r, i) => {
+      const d = r.daily[day];
+      if (!d || !d.points) return;
+      const L = lanes[i], x = prevX[i];
+      const pop = document.createElement("div");
+      pop.className = "pop"; pop.style.color = r.color;
+      pop.style.left = Math.max(4, x + CARW * 0.35) + "px";
+      pop.textContent = "+" + d.points;
+      L.road.appendChild(pop);
+      for (let k = 0; k < (TIGHT ? 2 : 3); k++) {
+        const p = document.createElement("div");
+        p.className = "puff";
+        p.style.left = Math.max(0, x + 4) + "px";
+        p.style.animationDelay = k * 70 + "ms";
+        L.road.appendChild(p);
+        setTimeout(() => p.remove(), 900);
+      }
+      L.car.classList.add("boosting");
+      setTimeout(() => L.car.classList.remove("boosting"), 320);
+      setTimeout(() => pop.remove(), 1200);
+    });
+  }
+
+  /* ----------------------------------------------------------------- finish */
+  let finished = false;
+  function finish(standings) {
+    if (finished) return;
+    finished = true;
+    const w = standings[0];
+    if (!w) return;
+    $("winner-name").textContent = `${w.r.name} takes the flag`;
+    const second = standings[1];
+    $("winner-line").textContent =
+      `${w.dist.toFixed(0)} distance from ${Math.round(at(w.i, N))} points in a ${(w.r.carLabel || w.r.car).toLowerCase()} (×${w.r.speed})` +
+      (second ? ` — ${(w.dist - second.dist).toFixed(0)} ahead of ${second.r.name}.` : ".");
+    $("winner").classList.add("show");
+    confetti(w.r.color);
+  }
+  function hideWinner() { if (finished) { finished = false; $("winner").classList.remove("show"); } }
+
+  function confetti(color) {
+    const box = $("confetti");
+    const colors = [color, "#ffd23f", "#00e5ff", "#ff7ac6", "#7cff6b"];
+    for (let i = 0; i < 90; i++) {
+      const c = document.createElement("i");
+      c.className = "conf";
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.top = "-20px";
+      c.style.background = colors[i % colors.length];
+      c.style.animationDuration = 2.2 + Math.random() * 2 + "s";
+      c.style.animationDelay = Math.random() * 0.8 + "s";
+      box.appendChild(c);
+      setTimeout(() => c.remove(), 5200);
+    }
+  }
+
+  /* -------------------------------------------------------------- playback */
+  function loop(now) {
+    if (!playing) return;
+    const dt = Math.min(0.05, (now - loop.last) / 1000 || 0);
+    loop.last = now;
+    t = Math.min(N, t + dt * (N / 18) * mult);
+    render();
+    if (t >= N) { playing = false; $("play").textContent = "▶ Replay"; return; }
+    raf = requestAnimationFrame(loop);
+  }
+
+  function play() {
+    if (t >= N) t = 0;
+    playing = true;
+    lastDay = Math.floor(t);
+    $("play").textContent = "❚❚ Pause";
+    loop.last = performance.now();
+    raf = requestAnimationFrame(loop);
+  }
+  function pause() { playing = false; cancelAnimationFrame(raf); $("play").textContent = "▶ Resume"; }
+
+  function wire() {
+    $("winner").onclick = () => $("winner").classList.remove("show");
+    $("play").onclick = () => (playing ? pause() : play());
+    $("restart").onclick = () => { pause(); t = 0; lastDay = -1; hideWinner(); render(true); play(); };
+    $("speeds").onclick = (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      mult = Number(b.dataset.speed);
+      [...$("speeds").children].forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    };
+    $("scrub").oninput = (e) => { pause(); t = (Number(e.target.value) / 100) * N; lastDay = Math.floor(t); render(true); };
+    addEventListener("resize", () => { applyDensity(); render(true); });
+    addEventListener("keydown", (e) => {
+      if (e.code === "Space") { e.preventDefault(); playing ? pause() : play(); }
+      if (e.key === "ArrowRight") { pause(); t = Math.min(N, t + 1); render(true); }
+      if (e.key === "ArrowLeft") { pause(); t = Math.max(0, t - 1); render(true); }
+    });
+  }
+
+  /* ------------------------------------------------------------------ boot */
+  async function boot() {
+    DATA = window.RACE_DATA;
+    if (!DATA) {
+      try {
+        const res = await fetch("data.json", { cache: "no-store" });
+        if (res.ok) DATA = await res.json();
+      } catch (_) { /* file:// with no data.js — fall through */ }
+    }
+    if (!DATA || !DATA.racers || !DATA.racers.length) DATA = buildDemo();
+    build();
+    wire();
+    t = 0; lastDay = -1; render(true);
+    setTimeout(play, 600);
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

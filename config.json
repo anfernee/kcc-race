@@ -1,0 +1,44 @@
+{
+  "title": "KCC Grand Prix",
+  "subtitle": "Merged PRs, closed issues and reviews — as a race",
+
+  "period": { "since": "2026-08-01", "until": "2026-08-31" },
+
+  "scope": {
+    "orgs": ["KCC"],
+    "repos": []
+  },
+
+  "scoring": {
+    "mergedPR": 2,
+    "issueClosed": 4,
+    "reviewSubmitted": 1
+  },
+
+  "_notes": [
+    "login is the only required field. name defaults to the login,",
+    "colour is handed out automatically, and car defaults to 'muscle' (speed 1.00)",
+    "so nobody is handicapped by accident — hand out the fast cars on purpose."
+  ],
+
+  "racers": [
+    { "login": "anfernee",     "name": "Yongkun", "car": "f1" },
+    { "login": "defunkt",      "name": "Chris",   "car": "supercar" },
+    { "login": "mojombo",      "name": "Tom",     "car": "sports" },
+    { "login": "pjhyett",      "name": "PJ",      "car": "muscle" },
+    { "login": "kneath",       "name": "Kyle",    "car": "hatchback" },
+    { "login": "technoweenie", "name": "Rick",    "car": "pickup" },
+    { "login": "schacon",      "name": "Scott",   "car": "van" },
+    { "login": "jeresig",      "name": "John",    "car": "tractor" },
+    { "login": "wycats",       "name": "Yehuda",  "car": "sports" },
+    { "login": "tenderlove",   "name": "Aaron",   "car": "supercar" },
+    { "login": "dhh",          "name": "David",   "car": "muscle" },
+    { "login": "sindresorhus", "name": "Sindre",  "car": "f1" },
+    { "login": "addyosmani",   "name": "Addy",    "car": "hatchback" },
+    { "login": "paulirish",    "name": "Paul",    "car": "pickup" },
+    { "login": "gaearon",      "name": "Dan",     "car": "sports" },
+    { "login": "kentcdodds",   "name": "Kent",    "car": "van" },
+    { "login": "yyx990803",    "name": "Evan",    "car": "supercar" },
+    { "login": "developit",    "name": "Jason",   "car": "muscle" }
+  ]
+}

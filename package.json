@@ -1,0 +1,13 @@
+{
+  "name": "kcc-grand-prix",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A GitHub contribution race: merged PRs, closed issues and reviews rendered as a car race.",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch.js",
+    "demo": "node scripts/fetch.js --demo",
+    "serve": "node scripts/serve.js"
+  },
+  "engines": { "node": ">=18" }
+}
