@@ -2,7 +2,7 @@
   "title": "KCC Grand Prix",
   "subtitle": "Merged PRs, closed issues and reviews — as a race",
 
-  "period": { "since": "2026-01-01", "until": "2026-08-31" },
+  "period": { "since": "2026-09-01", "until": "2026-09-30" },
 
   "scope": {
     "orgs": ["GoogleCloudPlatform"],
@@ -73,9 +73,29 @@
       "car": "supercar"
     },
     {
+      "login": "seans3",
+      "name": "Sean",
+      "car": "f1"
+    },
+    {
+      "login": "yliaog",
+      "name": "Yu",
+      "car": "supercar"
+    },
+    {
+      "login": "ziyue-101",
+      "name": "Ziyue",
+      "car": "supercar"
+    },
+    {
+      "login": "GinnyJI",
+      "name": "Ginny",
+      "car": "f1"
+    },
+    {
       "login": "himanigulati01",
       "name": "Himani",
-      "car": "muscle"
+      "car": "f1"
     }
   ]
 }
