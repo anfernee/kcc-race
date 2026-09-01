@@ -212,7 +212,6 @@
     <span class="pill" id="pill-period">—</span>
     <span class="pill" id="pill-scope">—</span>
     <span class="pill" id="pill-generated">—</span>
-    <span class="pill warn" id="pill-demo" hidden>demo data</span>
   </header>
 
   <div class="grid">
@@ -444,7 +443,6 @@
     const scope = [...(DATA.scope.orgs || []), ...(DATA.scope.repos || [])];
     $("pill-scope").innerHTML = scope.length ? `scope <b>${scope.join(", ")}</b>` : "scope <b>all of GitHub</b>";
     $("pill-generated").textContent = "updated " + new Date(DATA.generatedAt).toLocaleString();
-    $("pill-demo").hidden = !DATA.demo;
     $("foot").innerHTML = `Distance = points × car speed. Refresh the numbers with <code>npm run fetch</code>.`;
 
     applyDensity();
