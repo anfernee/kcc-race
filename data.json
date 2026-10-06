@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T00:16:52.181Z",
+  "generatedAt": "2026-10-06T04:53:34.295Z",
   "demo": false,
   "title": "KCC Grand Prix",
   "subtitle": "Merged PRs, closed issues and reviews — as a race",
@@ -95,11 +95,11 @@
       "color": "#ff3b6b",
       "speed": 1,
       "totals": {
-        "pr": 0,
-        "issue": 3,
+        "pr": 1,
+        "issue": 5,
         "review": 25,
-        "points": 37,
-        "distance": 37
+        "points": 47,
+        "distance": 47
       },
       "daily": [
         {
@@ -243,8 +243,8 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 2,
-          "points": 2
+          "review": 1,
+          "points": 1
         },
         {
           "pr": 0,
@@ -271,16 +271,16 @@
           "points": 0
         },
         {
-          "pr": 0,
+          "pr": 1,
           "issue": 0,
-          "review": 0,
-          "points": 0
+          "review": 1,
+          "points": 3
         },
         {
           "pr": 0,
-          "issue": 0,
+          "issue": 2,
           "review": 0,
-          "points": 0
+          "points": 8
         }
       ],
       "events": [
@@ -479,14 +479,6 @@
         {
           "type": "review",
           "day": "2026-09-24",
-          "title": "Fix SecretManagerSecret createTime status schema",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12612",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12612
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
           "title": "Validate test cases for ContainerCluster",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12610",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -507,6 +499,38 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13183",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13183
+        },
+        {
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "Update grpc to 1.82.1",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13302",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13302
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "feat(accesscontextmanager): support service perimeter policy titles",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12391",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12391
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13215",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13215
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/11059",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 11059
         }
       ]
     },
@@ -518,11 +542,11 @@
       "color": "#00e0ff",
       "speed": 1,
       "totals": {
-        "pr": 3,
-        "issue": 4,
-        "review": 53,
-        "points": 75,
-        "distance": 75
+        "pr": 4,
+        "issue": 7,
+        "review": 43,
+        "points": 79,
+        "distance": 79
       },
       "daily": [
         {
@@ -666,32 +690,14 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 6,
-          "points": 6
+          "review": 4,
+          "points": 4
         },
         {
           "pr": 1,
           "issue": 0,
           "review": 4,
           "points": 6
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 4,
-          "points": 4
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 1,
-          "review": 15,
-          "points": 19
         },
         {
           "pr": 0,
@@ -704,6 +710,24 @@
           "issue": 0,
           "review": 0,
           "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 1,
+          "review": 6,
+          "points": 10
+        },
+        {
+          "pr": 1,
+          "issue": 1,
+          "review": 5,
+          "points": 11
+        },
+        {
+          "pr": 0,
+          "issue": 2,
+          "review": 0,
+          "points": 8
         }
       ],
       "events": [
@@ -934,14 +958,6 @@
         {
           "type": "review",
           "day": "2026-09-24",
-          "title": "docs: design proposal and runbook for deterministic CRD generation",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13394",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13394
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
           "title": "controllerbuilder: drop imports orphaned by --prune-unused-types",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13393",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -954,14 +970,6 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13392",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13392
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
-          "title": "refactor: use mockaiplatformv1",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13345",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13345
         },
         {
           "type": "pr",
@@ -1006,14 +1014,6 @@
         {
           "type": "review",
           "day": "2026-09-26",
-          "title": "ai:chore: Implement direct types for: OracleDatabaseAutonomousDatabase",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13414",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13414
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
           "title": "apichecks: record and read judgement queue to suppress [refs] during scaffolding",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13400",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -1054,38 +1054,6 @@
         {
           "type": "review",
           "day": "2026-09-28",
-          "title": "feat(mockgcp): add google.monitoring.dashboard.v1 proto definitions",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13471",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13471
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "chronicle: add ChronicleWatchlist using bulk generation flags",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13407",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13407
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "controllerbuilder: warn on an ambiguous --resource, and document the flags",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13405",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13405
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "controllerbuilder: place server-computed fields in ObservedState, behind a flag",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13404",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13404
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
           "title": "controllerbuilder: Add flags to match KRM acronym casing and deterministically generate map<string, message> maps",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13402",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -1102,42 +1070,10 @@
         {
           "type": "review",
           "day": "2026-09-28",
-          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for OracleDatabaseExadbVMCluster",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13376",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13376
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for NetworkServicesServiceLBPolicy",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13338",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13338
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
           "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for NetworkServicesLBTrafficExtension",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13330",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13330
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for LustreInstance",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13315",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13315
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for LiveStreamInput",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13313",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13313
         },
         {
           "type": "review",
@@ -1156,12 +1092,36 @@
           "number": 13308
         },
         {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for RunWorkerPool",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12928",
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "chore: release MigrationCenterGroup",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13516",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12928
+          "number": 13516
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-29",
+          "title": "ai:feat: KCC support for NetworkConnectivityMulticloudDataTransferConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13271",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13271
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: flag an ambiguous --resource",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13405",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13405
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: place server-computed fields in ObservedState, behind a flag",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13404",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13404
         },
         {
           "type": "review",
@@ -1174,18 +1134,34 @@
         {
           "type": "review",
           "day": "2026-09-29",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for AIPlatformSpecialistPool",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13210",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataplexGlossary",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13209",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13210
+          "number": 13209
         },
         {
           "type": "review",
           "day": "2026-09-29",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for AIPlatformOnlineEvaluator",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12861",
+          "title": "Greenfield: Implement MockGCP and Alignment for SecurityCenterBigQueryExport",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/11399",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12861
+          "number": 11399
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for ManagedKafkaConnectCluster",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13256",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13256
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/11233",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 11233
         }
       ]
     },
@@ -1199,9 +1175,9 @@
       "totals": {
         "pr": 13,
         "issue": 4,
-        "review": 60,
-        "points": 102,
-        "distance": 102
+        "review": 59,
+        "points": 101,
+        "distance": 101
       },
       "daily": [
         {
@@ -1345,8 +1321,8 @@
         {
           "pr": 4,
           "issue": 0,
-          "review": 3,
-          "points": 11
+          "review": 2,
+          "points": 10
         },
         {
           "pr": 0,
@@ -1972,14 +1948,6 @@
         },
         {
           "type": "review",
-          "day": "2026-09-24",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for CloudNumberRegistryRealm",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12867",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12867
-        },
-        {
-          "type": "review",
           "day": "2026-09-25",
           "title": "Release 1.158.0",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13334",
@@ -2012,18 +1980,18 @@
       "color": "#6bff8f",
       "speed": 1,
       "totals": {
-        "pr": 1,
-        "issue": 7,
-        "review": 115,
-        "points": 145,
-        "distance": 145
+        "pr": 2,
+        "issue": 16,
+        "review": 126,
+        "points": 194,
+        "distance": 194
       },
       "daily": [
         {
           "pr": 0,
           "issue": 3,
-          "review": 11,
-          "points": 23
+          "review": 10,
+          "points": 22
         },
         {
           "pr": 0,
@@ -2034,8 +2002,8 @@
         {
           "pr": 0,
           "issue": 4,
-          "review": 10,
-          "points": 26
+          "review": 9,
+          "points": 25
         },
         {
           "pr": 0,
@@ -2118,8 +2086,8 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 1,
-          "points": 1
+          "review": 0,
+          "points": 0
         },
         {
           "pr": 0,
@@ -2178,26 +2146,26 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 1,
-          "points": 1
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 5,
-          "points": 5
-        },
-        {
-          "pr": 0,
-          "issue": 0,
           "review": 0,
           "points": 0
         },
         {
           "pr": 0,
           "issue": 0,
-          "review": 0,
-          "points": 0
+          "review": 4,
+          "points": 4
+        },
+        {
+          "pr": 1,
+          "issue": 0,
+          "review": 8,
+          "points": 10
+        },
+        {
+          "pr": 0,
+          "issue": 9,
+          "review": 8,
+          "points": 44
         }
       ],
       "events": [
@@ -2296,14 +2264,6 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12543",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 12543
-        },
-        {
-          "type": "review",
-          "day": "2026-09-01",
-          "title": "Greenfield: Verify and journal KRM types and identity for APIHubAPI",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12417",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12417
         },
         {
           "type": "review",
@@ -2456,14 +2416,6 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12684",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 12684
-        },
-        {
-          "type": "review",
-          "day": "2026-09-03",
-          "title": "Greenfield: Implement MockGCP and Alignment for StorageInsightsDatasetConfig",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12421",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12421
         },
         {
           "type": "review",
@@ -3003,14 +2955,6 @@
         },
         {
           "type": "review",
-          "day": "2026-09-17",
-          "title": "Greenfield: Fix CCInsightsAnalysisRule Identity format and add E2E presubmit",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12689",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12689
-        },
-        {
-          "type": "review",
           "day": "2026-09-18",
           "title": "Implement direct KRM types and generate.sh for ComputeSSLPolicy",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/9725",
@@ -3139,27 +3083,11 @@
         },
         {
           "type": "review",
-          "day": "2026-09-27",
-          "title": "clouddeploy: Implement direct controller, E2E fixtures, and fuzzer for CloudDeployCustomTargetType",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12866",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12866
-        },
-        {
-          "type": "review",
           "day": "2026-09-28",
           "title": "chore(workflows): inherit parent issue assignees on child issues in kcc-greenfield",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13494",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13494
-        },
-        {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "git-hooks: make pre-push validation work in linked worktrees",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13488",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13488
         },
         {
           "type": "review",
@@ -3184,6 +3112,214 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13401",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13401
+        },
+        {
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "add runbook for repo-agent",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13498",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13498
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: flag an ambiguous --resource",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13405",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13405
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: place server-computed fields in ObservedState, behind a flag",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13404",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13404
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "clouddeploy: Implement direct controller, E2E fixtures, and fuzzer for CloudDeployCustomTargetType",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12866",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12866
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12725",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12725
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Fix CCInsightsAnalysisRule Identity format and add E2E presubmit",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12689",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12689
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement MockGCP and Alignment for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12421",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12421
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Verify and journal KRM types and identity for APIHubAPI",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12417",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12417
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "storageinsights: Standardize reference Normalize function for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/11637",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 11637
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13536",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13536
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13535",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13535
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for CloudDeployCustomTargetType",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13534",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13534
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13519",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13519
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for CloudDeployCustomTargetType",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13518",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13518
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13215",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13215
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for CloudDeployCustomTargetType",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/12840",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12840
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/11233",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 11233
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/11059",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 11059
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for CloudDeployCustomTargetType",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13541",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13541
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13540",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13540
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13539",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13539
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13526",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13526
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for StorageInsightsDatasetConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13525",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13525
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for CloudDeployCustomTargetType",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13524",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13524
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for CCInsightsAnalysisRule",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13520",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13520
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for MapManagementMapConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12428",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12428
         }
       ]
     },
@@ -3196,10 +3332,10 @@
       "speed": 1,
       "totals": {
         "pr": 8,
-        "issue": 14,
+        "issue": 19,
         "review": 43,
-        "points": 115,
-        "distance": 115
+        "points": 135,
+        "distance": 135
       },
       "daily": [
         {
@@ -3289,8 +3425,8 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 4,
-          "points": 4
+          "review": 3,
+          "points": 3
         },
         {
           "pr": 0,
@@ -3343,8 +3479,8 @@
         {
           "pr": 1,
           "issue": 3,
-          "review": 6,
-          "points": 20
+          "review": 5,
+          "points": 19
         },
         {
           "pr": 1,
@@ -3355,8 +3491,8 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 2,
-          "points": 2
+          "review": 1,
+          "points": 1
         },
         {
           "pr": 0,
@@ -3372,15 +3508,15 @@
         },
         {
           "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
+          "issue": 2,
+          "review": 2,
+          "points": 10
         },
         {
           "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
+          "issue": 3,
+          "review": 1,
+          "points": 13
         }
       ],
       "events": [
@@ -3625,14 +3761,6 @@
           "number": 12903
         },
         {
-          "type": "review",
-          "day": "2026-09-15",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for DialogflowTool",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12643",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12643
-        },
-        {
           "type": "issue",
           "day": "2026-09-16",
           "title": "ai:feat: KCC support for ModelArmorFloorSetting",
@@ -3827,14 +3955,6 @@
         {
           "type": "review",
           "day": "2026-09-24",
-          "title": "Greenfield: Align MockGCP logs with RealGCP for DeviceStreamingSession",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12772",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12772
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
           "title": "Release Notes 1.153.0",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/10374",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -3875,14 +3995,6 @@
         {
           "type": "review",
           "day": "2026-09-26",
-          "title": "ai:chore: Implement direct types for: OracleDatabaseAutonomousDatabase",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13414",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13414
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
           "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for NetworkServicesAgentGateway",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13319",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -3903,6 +4015,70 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13310",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13310
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-29",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for BigtableSchemaBundle",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13499",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13499
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-29",
+          "title": "ai:feat: KCC support for BigtableSchemaBundle",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13354",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13354
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "chore: release MigrationCenterGroup",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13516",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13516
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for DialogflowTool",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12643",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12643
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13536",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13536
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for DialogflowKnowledgeBase",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13519",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13519
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for ManagedKafkaConnectCluster",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13256",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13256
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for DeviceStreamingSession",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12772",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12772
         }
       ]
     },
@@ -3914,11 +4090,11 @@
       "color": "#ff9f1c",
       "speed": 1,
       "totals": {
-        "pr": 3,
+        "pr": 4,
         "issue": 17,
-        "review": 59,
-        "points": 133,
-        "distance": 133
+        "review": 52,
+        "points": 128,
+        "distance": 128
       },
       "daily": [
         {
@@ -4002,8 +4178,8 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 3,
-          "points": 3
+          "review": 2,
+          "points": 2
         },
         {
           "pr": 0,
@@ -4062,8 +4238,8 @@
         {
           "pr": 0,
           "issue": 0,
-          "review": 3,
-          "points": 3
+          "review": 1,
+          "points": 1
         },
         {
           "pr": 0,
@@ -4074,20 +4250,14 @@
         {
           "pr": 0,
           "issue": 2,
-          "review": 11,
-          "points": 19
+          "review": 5,
+          "points": 13
         },
         {
           "pr": 0,
           "issue": 0,
           "review": 0,
           "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 2,
-          "points": 2
         },
         {
           "pr": 0,
@@ -4096,10 +4266,16 @@
           "points": 1
         },
         {
+          "pr": 1,
+          "issue": 0,
+          "review": 2,
+          "points": 4
+        },
+        {
           "pr": 0,
           "issue": 0,
-          "review": 0,
-          "points": 0
+          "review": 2,
+          "points": 2
         }
       ],
       "events": [
@@ -4473,14 +4649,6 @@
         },
         {
           "type": "review",
-          "day": "2026-09-14",
-          "title": "directbase: support unreadable-but-deletable resources",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12750",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12750
-        },
-        {
-          "type": "review",
           "day": "2026-09-15",
           "title": "Support Datastore mode Firestore indexes",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12446",
@@ -4578,22 +4746,6 @@
         {
           "type": "review",
           "day": "2026-09-24",
-          "title": "Direct: Implement direct controller and validate promotion for FilestoreInstance",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12788",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12788
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
-          "title": "Validate direct promotion for ComputeRouterNAT",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12703",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12703
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
           "title": "Release Notes 1.153.0",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/10374",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -4626,50 +4778,10 @@
         {
           "type": "review",
           "day": "2026-09-26",
-          "title": "ci: delegate tests-scenarios-suite to dev/tasks/run-e2e",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13476",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13476
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
-          "title": "E2E Scenario Testing: Support HTTPRequest Step and Cloud SQL Advanced DR Scenarios",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13469",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13469
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
           "title": "[Docs/SQLInstance] Document cnrm.cloud.google.com/sqlinstance-advanced-dr annotation in SQLInstance doc",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13465",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13465
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
-          "title": "feat(composer): add Composer 3 mutable field update masks",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13385",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13385
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
-          "title": "feat(operator): automatically restart manager pods when resourceSettings change",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13358",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13358
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
-          "title": "Add fixes for BigQueryDataset direct controller",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13352",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13352
         },
         {
           "type": "review",
@@ -4698,14 +4810,6 @@
         {
           "type": "review",
           "day": "2026-09-26",
-          "title": "docs(skills): create add-missing-field skill for direct resources",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12920",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12920
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
           "title": "Enhance Brownfield Direct Controller Skill with Diff-Driven Alignment Guide",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12901",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -4720,12 +4824,12 @@
           "number": 12855
         },
         {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "Match real gcp behavior in MockGCP for ContainerNodePool",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12571",
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "Revert \"E2E Scenario Framework: Separated Goldens, Alignment Diffs, and HTTPRequest support\"",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13474",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12571
+          "number": 13474
         },
         {
           "type": "review",
@@ -4734,6 +4838,30 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13472",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13472
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Direct: Implement direct controller and validate promotion for FilestoreInstance",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12788",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12788
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "feat(composer): add Composer 3 mutable field update masks",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13385",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13385
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Validate direct promotion for ComputeRouterNAT",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12703",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 12703
         }
       ]
     },
@@ -4746,10 +4874,10 @@
       "speed": 1,
       "totals": {
         "pr": 5,
-        "issue": 7,
-        "review": 12,
-        "points": 50,
-        "distance": 50
+        "issue": 10,
+        "review": 14,
+        "points": 64,
+        "distance": 64
       },
       "daily": [
         {
@@ -4917,20 +5045,20 @@
         {
           "pr": 2,
           "issue": 1,
-          "review": 2,
-          "points": 10
+          "review": 1,
+          "points": 9
         },
         {
           "pr": 0,
           "issue": 0,
-          "review": 0,
-          "points": 0
+          "review": 3,
+          "points": 3
         },
         {
           "pr": 0,
-          "issue": 0,
+          "issue": 3,
           "review": 0,
-          "points": 0
+          "points": 12
         }
       ],
       "events": [
@@ -5113,18 +5241,58 @@
         {
           "type": "review",
           "day": "2026-09-28",
+          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13457",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13457
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "runbooks/gke-std: upload pkg/cli/log to Cloud Build",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13503",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13503
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13500",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13500
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
           "title": "add runbook for repo-agent",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13498",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13498
         },
         {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for DataplexDataProduct",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13457",
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13529",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13457
+          "number": 13529
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13513",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13513
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13192",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13192
         }
       ]
     },
@@ -5136,11 +5304,11 @@
       "color": "#ff77c8",
       "speed": 1,
       "totals": {
-        "pr": 11,
-        "issue": 2,
-        "review": 19,
-        "points": 49,
-        "distance": 49
+        "pr": 14,
+        "issue": 5,
+        "review": 22,
+        "points": 70,
+        "distance": 70
       },
       "daily": [
         {
@@ -5284,8 +5452,8 @@
         {
           "pr": 4,
           "issue": 0,
-          "review": 3,
-          "points": 11
+          "review": 2,
+          "points": 10
         },
         {
           "pr": 2,
@@ -5296,8 +5464,8 @@
         {
           "pr": 3,
           "issue": 0,
-          "review": 6,
-          "points": 12
+          "review": 3,
+          "points": 9
         },
         {
           "pr": 0,
@@ -5308,20 +5476,20 @@
         {
           "pr": 2,
           "issue": 1,
-          "review": 1,
+          "review": 0,
+          "points": 8
+        },
+        {
+          "pr": 3,
+          "issue": 2,
+          "review": 3,
+          "points": 17
+        },
+        {
+          "pr": 0,
+          "issue": 1,
+          "review": 5,
           "points": 9
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
         }
       ],
       "events": [
@@ -5448,14 +5616,6 @@
         {
           "type": "review",
           "day": "2026-09-24",
-          "title": "Fix SecretManagerSecret createTime status schema",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12612",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12612
-        },
-        {
-          "type": "review",
-          "day": "2026-09-24",
           "title": "Release Notes 1.153.0",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/10374",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
@@ -5504,34 +5664,10 @@
         {
           "type": "review",
           "day": "2026-09-26",
-          "title": "ai:chore: Implement direct types for: OracleDatabaseAutonomousDatabase",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13414",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13414
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
-          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataLineageProcess",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13378",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13378
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
           "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for NetworkServicesAgentGateway",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13319",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13319
-        },
-        {
-          "type": "review",
-          "day": "2026-09-26",
-          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataformFolder",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13184",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 13184
         },
         {
           "type": "review",
@@ -5574,12 +5710,116 @@
           "number": 11344
         },
         {
-          "type": "review",
-          "day": "2026-09-28",
-          "title": "feat: support privilegedAdmissionConfig (Autopilot Privileged Admission) in ContainerCluster",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12771",
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: flag an ambiguous --resource",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13405",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12771
+          "number": 13405
+        },
+        {
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: place server-computed fields in ObservedState, behind a flag",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13404",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13404
+        },
+        {
+          "type": "pr",
+          "day": "2026-09-29",
+          "title": "controllerbuilder: report fields that look like references, without guessing",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13403",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13403
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-29",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for NetworkConnectivityMulticloudDataTransferConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13507",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13507
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-29",
+          "title": "ai:feat: KCC support for NetworkConnectivityMulticloudDataTransferConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13271",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13271
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Revert \"E2E Scenario Framework: Separated Goldens, Alignment Diffs, and HTTPRequest support\"",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13474",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13474
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement MockGCP and Alignment for NetworkConnectivityMulticloudDataTransferConfig",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13470",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13470
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataformFolder",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13184",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13184
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "ai:feat: KCC support for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13192",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13192
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Align MockGCP logs with RealGCP for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13537",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13537
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for DataplexDataProduct",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13522",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13522
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "feat(discoveryengine): implement Greenfield direct types and identity for DiscoveryEngineSitemap",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13450",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13450
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for NetworkConnectivityTransport",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13440",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13440
+        },
+        {
+          "type": "review",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataLineageProcess",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13378",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13378
         }
       ]
     },
@@ -6023,9 +6263,9 @@
       "totals": {
         "pr": 0,
         "issue": 0,
-        "review": 4,
-        "points": 4,
-        "distance": 8
+        "review": 2,
+        "points": 2,
+        "distance": 4
       },
       "daily": [
         {
@@ -6151,6 +6391,48 @@
         {
           "pr": 0,
           "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
           "review": 1,
           "points": 1
         },
@@ -6159,48 +6441,6 @@
           "issue": 0,
           "review": 0,
           "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 1,
-          "points": 1
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 1,
-          "points": 1
         },
         {
           "pr": 0,
@@ -6220,27 +6460,11 @@
         },
         {
           "type": "review",
-          "day": "2026-09-21",
-          "title": "ai: Greenfield: Implement direct KRM types, identity, and generate.sh for AIPlatformCachedContent",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12696",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12696
-        },
-        {
-          "type": "review",
           "day": "2026-09-28",
           "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for AIPlatformReasoningEngine",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12855",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 12855
-        },
-        {
-          "type": "review",
-          "day": "2026-09-29",
-          "title": "Greenfield: Implement direct KRM types, identity, and generate.sh for AIPlatformModelMonitor",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12856",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12856
         }
       ]
     },
@@ -6666,10 +6890,10 @@
       "speed": 2,
       "totals": {
         "pr": 0,
-        "issue": 1,
+        "issue": 2,
         "review": 4,
-        "points": 8,
-        "distance": 16
+        "points": 12,
+        "distance": 24
       },
       "daily": [
         {
@@ -6848,9 +7072,9 @@
         },
         {
           "pr": 0,
-          "issue": 0,
+          "issue": 1,
           "review": 0,
-          "points": 0
+          "points": 4
         }
       ],
       "events": [
@@ -6893,6 +7117,14 @@
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13310",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 13310
+        },
+        {
+          "type": "issue",
+          "day": "2026-09-30",
+          "title": "Greenfield: Implement MockGCP and Alignment for ManagedKafkaConnectCluster",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/13495",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13495
         }
       ]
     },
@@ -7034,6 +7266,24 @@
         {
           "pr": 0,
           "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
           "review": 1,
           "points": 1
         },
@@ -7052,38 +7302,20 @@
         {
           "pr": 0,
           "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
+          "review": 0,
+          "points": 0
+        },
+        {
+          "pr": 0,
+          "issue": 0,
           "review": 1,
           "points": 1
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
-        },
-        {
-          "pr": 0,
-          "issue": 0,
-          "review": 0,
-          "points": 0
         },
         {
           "pr": 0,
@@ -7127,19 +7359,19 @@
         },
         {
           "type": "review",
-          "day": "2026-09-21",
-          "title": "ai: Greenfield: Implement direct KRM types, identity, and generate.sh for AIPlatformCachedContent",
-          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12696",
-          "repo": "GoogleCloudPlatform/k8s-config-connector",
-          "number": 12696
-        },
-        {
-          "type": "review",
           "day": "2026-09-24",
           "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for CloudBuildConnection",
           "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12863",
           "repo": "GoogleCloudPlatform/k8s-config-connector",
           "number": 12863
+        },
+        {
+          "type": "review",
+          "day": "2026-09-29",
+          "title": "Greenfield: Implement direct controller, E2E fixtures, and fuzzer for DataplexGlossary",
+          "url": "https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13209",
+          "repo": "GoogleCloudPlatform/k8s-config-connector",
+          "number": 13209
         }
       ]
     },
