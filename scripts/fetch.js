@@ -54,7 +54,14 @@ function daysBetween(since, until) {
 function scopeQualifier(scope = {}) {
   const parts = [];
   for (const org of scope.orgs || []) parts.push(`org:${org}`);
-  for (const repo of scope.repos || []) parts.push(`repo:${repo}`);
+  for (const repo of scope.repos || []) {
+    // GitHub silently ignores a bare `repo:name` when it sits next to an `org:`
+    // qualifier, which widens the search to the whole org — fail loudly instead.
+    if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) {
+      throw new Error(`config.scope.repos entry "${repo}" must be "owner/name", e.g. "GoogleCloudPlatform/k8s-config-connector"`);
+    }
+    parts.push(`repo:${repo}`);
+  }
   return parts.join(" ");
 }
 

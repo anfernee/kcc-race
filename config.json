@@ -5,8 +5,8 @@
   "period": { "since": "2026-09-01", "until": "2026-11-30" },
 
   "scope": {
-    "orgs": ["GoogleCloudPlatform"],
-    "repos": ["k8s-config-connector"]
+    "orgs": [],
+    "repos": ["GoogleCloudPlatform/k8s-config-connector"]
   },
 
   "scoring": {
