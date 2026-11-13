@@ -96,7 +96,7 @@ Three GitHub search queries per racer, per period:
 | Counts | Query | Dated by |
 | --- | --- | --- |
 | Merged PRs | `is:pr is:merged author:LOGIN merged:SINCE..UNTIL` | close date |
-| Issues closed | `is:issue is:closed assignee:LOGIN closed:SINCE..UNTIL` | close date |
+| Issues closed | `is:issue is:closed reason:completed assignee:LOGIN closed:SINCE..UNTIL` | close date |
 | Reviews | `is:pr -author:LOGIN reviewed-by:LOGIN updated:SINCE..UNTIL` | last update |
 
 Caveats worth knowing before anyone argues about the standings:
@@ -105,6 +105,8 @@ Caveats worth knowing before anyone argues about the standings:
   the search API has no per-review date, so a reviewed PR is dated by its last
   update. Close enough for a race, not an audit.
 - Issues are attributed by **assignee**, so unassigned issues score nobody.
+- Only issues closed as **completed** count; duplicate and not-planned closes
+  score nothing.
 - Search only sees repos your token can read; without a token it's public repos
   only and 10 requests/minute.
 - Each query pulls up to 300 items (`--pages=N` to change it).

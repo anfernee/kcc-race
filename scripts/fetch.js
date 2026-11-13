@@ -130,7 +130,7 @@ async function collectRacer(racer, cfg, scope) {
 
   const queries = [
     ["pr", `is:pr is:merged author:${login} merged:${since}..${until} ${scope}`],
-    ["issue", `is:issue is:closed assignee:${login} closed:${since}..${until} ${scope}`],
+    ["issue", `is:issue is:closed reason:completed assignee:${login} closed:${since}..${until} ${scope}`],
     ["review", `is:pr -author:${login} reviewed-by:${login} updated:${since}..${until} ${scope}`],
   ];
 
