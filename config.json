@@ -15,6 +15,8 @@
     "reviewSubmitted": 1
   },
 
+  "labels": ["greenfield", "workflow/greenfield"],
+
   "_notes": [
     "login is the only required field. name defaults to the login,",
     "colour is handed out automatically, and car defaults to 'muscle' (speed 1.00)",

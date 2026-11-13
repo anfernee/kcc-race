@@ -441,7 +441,9 @@
       `${DATA.scoring.mergedPR} pts per merged PR · ${DATA.scoring.issueClosed} per issue closed · ${DATA.scoring.reviewSubmitted} per review`;
     $("pill-period").innerHTML = `<b>${DATA.period.since}</b> → <b>${DATA.period.until}</b>`;
     const scope = [...(DATA.scope.orgs || []), ...(DATA.scope.repos || [])];
-    $("pill-scope").innerHTML = scope.length ? `scope <b>${scope.join(", ")}</b>` : "scope <b>all of GitHub</b>";
+    const labels = DATA.labels || [];
+    $("pill-scope").innerHTML = (scope.length ? `scope <b>${scope.join(", ")}</b>` : "scope <b>all of GitHub</b>") +
+      (labels.length ? ` · labels <b>${labels.map(esc).join(", ")}</b>` : "");
     $("pill-generated").textContent = "updated " + new Date(DATA.generatedAt).toLocaleString();
     $("foot").innerHTML = `Distance = points × car speed. Refresh the numbers with <code>npm run fetch</code>.`;
 

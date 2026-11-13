@@ -63,6 +63,12 @@ function repoFromUrl(url = "") {
   return m ? m[1] : "";
 }
 
+// Only count work carrying at least one of these labels. GitHub search treats
+// `label:a,b` as "a OR b"; for reviews the label is checked on the reviewed PR.
+function labelQualifier(labels = []) {
+  return labels.length ? `label:${labels.join(",")}` : "";
+}
+
 /* ------------------------------------------------------------ github calls */
 
 async function searchIssues(q, label) {
@@ -191,6 +197,7 @@ async function main() {
   const scoring = { mergedPR: 3, issueClosed: 2, reviewSubmitted: 1, ...(cfg.scoring || {}) };
   const points = { pr: scoring.mergedPR, issue: scoring.issueClosed, review: scoring.reviewSubmitted };
   const scope = scopeQualifier(cfg.scope);
+  const filter = [scope, labelQualifier(cfg.labels)].filter(Boolean).join(" ");
 
   if (!DEMO && !scope) {
     console.warn("! config.scope has no orgs or repos — the search will cover all of GitHub.");
@@ -208,7 +215,7 @@ async function main() {
       events = demoEvents(racer, days, (i + 1) * 7919);
     } else {
       try {
-        events = await collectRacer(racer, cfg, scope);
+        events = await collectRacer(racer, cfg, filter);
       } catch (err) {
         console.error(`  ✗ ${racer.login}: ${err.message}`);
         events = [];
@@ -264,6 +271,7 @@ async function main() {
     subtitle: cfg.subtitle || "",
     period: { since, until },
     scope: cfg.scope || {},
+    labels: cfg.labels || [],
     scoring,
     cars: CARS,
     days,

@@ -42,6 +42,7 @@ it works straight off disk with no server. If you'd rather serve it:
     "repos": ["my-org/api", "x/y"]    // repo:my-org/api  (OR'd with the orgs)
   },
   "scoring": { "mergedPR": 3, "issueClosed": 2, "reviewSubmitted": 1 },
+  "labels": ["greenfield"],             // optional: only labelled work counts
   "racers": [
     { "login": "octocat", "name": "Octo", "car": "f1", "color": "#ff2e63" },
     { "login": "someone", "name": "Sam",  "car": "van", "color": "#00e5ff", "speed": 0.9 }
@@ -56,6 +57,10 @@ it works straight off disk with no server. If you'd rather serve it:
 - `color` — the paint job. Optional; racers without one get the next colour from
   a 20-colour palette in `scripts/cars.js`. Purely cosmetic.
 - `speed` — optional override of the car's speed multiplier.
+
+**Label filter.** `labels` (top level) is optional. When it's set, only merged
+PRs, closed issues and reviewed PRs that carry at least one of these labels
+count — every query gets `label:a,b`, which GitHub treats as "a OR b".
 
 **Field size.** The grid is built for up to about 20 racers. Lane height, car
 size and label width are derived from the racer count and the window height, so
@@ -91,7 +96,8 @@ The `lamp()`, `tail()` and `wheel()` helpers place those parts.
 
 ## How the numbers are found
 
-Three GitHub search queries per racer, per period:
+Three GitHub search queries per racer, per period (plus `label:…` when
+`labels` is set):
 
 | Counts | Query | Dated by |
 | --- | --- | --- |
